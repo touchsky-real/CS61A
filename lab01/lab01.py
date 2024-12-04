@@ -42,6 +42,12 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    product = 1
+    while k>0:
+        product = product * n
+        n = n - 1
+        k = k - 1
+    return product
 
 
 def divisible_by_k(n, k):
@@ -65,6 +71,14 @@ def divisible_by_k(n, k):
     0
     """
     "*** YOUR CODE HERE ***"
+    num = 0
+    a = k
+    while a<=n:
+        if a % k == 0:
+            print(a)
+            num = num + 1
+        a = a + 1
+    return num
 
 
 def sum_digits(y):
