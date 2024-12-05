@@ -95,6 +95,12 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    sum = 0
+    while y!=0:
+        digit = y % 10
+        y = y // 10
+        sum += digit
+    return sum
 
 
 def double_eights(n):
@@ -113,4 +119,12 @@ def double_eights(n):
     False
     """
     "*** YOUR CODE HERE ***"
-
+    digit = None
+    lastdig = None
+    while n!=0:
+        lastdig = digit
+        digit = n % 10
+        n = n // 10
+        if (lastdig == digit ==8):
+            return True
+    return False
