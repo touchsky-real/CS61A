@@ -86,6 +86,15 @@ def multiple(a, b):
     42
     """
     "*** YOUR CODE HERE ***"
+    maximum  = max(a,b)
+    n = 1
+    k = 1
+    while n <= maximum:
+        if a % n == 0 and b % n ==0:
+            k =n
+        n+=1
+    return a*b//k
+
 
 
 
@@ -116,4 +125,21 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    def g(n):
+        def h(x):
+            if n == 0:
+                return x
+            i = 1
+            while i <= n:
+                if   i%3 ==0 :
+                    x = f3(x)
+                elif i%3 ==1 :
+                    x = f1(x)
+                elif i%3 ==2 :
+                    x = f2(x)
+
+                i += 1
+            return x
+        return h
+    return g
 
