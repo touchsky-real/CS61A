@@ -87,15 +87,25 @@ def interleaved_sum(n, odd_func, even_func):
     True
     """
     "*** YOUR CODE HERE ***"
-    def odd(m):
-        if(m > n):
-            return 0
-        return odd_func(m) + even(m+1)
-    def even(m):
-        if(m > n):
-            return 0
-        return even_func(m) + odd(m+1)
+    # def odd(m):
+    #     if(m > n):
+    #         return 0
+    #     return odd_func(m) + even(m+1)
+    # def even(m):
+    #     if(m > n):
+    #         return 0
+    #     return even_func(m) + odd(m+1)
 
+    # return odd(1)
+
+    def odd(m):
+        """incorporate above mutually recursive functions to simple recursion"""
+        if(m > n):
+            return 0
+        else:
+            if (m+1>n):
+                return odd_func(m)
+            return odd_func(m) + even_func(m+1)+odd(m+2)
     return odd(1)
 
 
