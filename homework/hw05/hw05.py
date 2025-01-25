@@ -88,18 +88,17 @@ def stair_ways(n):
     #         yield [2] + way
 
 
-    def helper(n, res):
+    def helper(n, res=[]):
+        """
+        Given remaining N steps to climb and current result RES, yield all different ways to climb remaining N steps prepending with RES.
+        """
         if n == 0:
-            yield res  # Base case: no steps remaining
+            yield res
         elif n > 0:
-            # Recursive case: take a 1-step or a 2-step
             yield from helper(n - 1, res + [1])
             yield from helper(n - 2, res + [2])
 
-    if n == 0:
-        yield []  # Ensure a single result for n == 0
-    else:
-        yield from helper(n, [])
+    yield from helper(n)
 
 
 
@@ -141,9 +140,8 @@ def yield_paths(t, value):
     if label(t) == value:
         yield [value]
     for b in branches(t):
-        for path in yield_paths(b, value):
+        for path in yield_paths(b,value):
             yield [label(t)] + path
-
 
 
 # Tree Data Abstraction
